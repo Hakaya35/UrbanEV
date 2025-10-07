@@ -1,0 +1,38 @@
+# PyTorch and related packages
+# Note: For GPU support with CUDA 11.8, install using:
+# pip install torch==2.4.1 torchvision==0.19.1 torchaudio==2.4.1 --index-url https://download.pytorch.org/whl/cu118
+# For CPU only, use:
+# pip install torch==2.4.1 torchvision==0.19.1 torchaudio==2.4.1 --index-url https://download.pytorch.org/whl/cpu
+torch==2.4.1
+torchvision==0.19.1
+torchaudio==2.4.1
+
+# PyTorch Geometric and extensions
+# Note: Install these after PyTorch. For CUDA 11.8, use:
+# pip install pyg_lib torch_scatter torch_sparse torch_cluster torch_spline_conv -f https://data.pyg.org/whl/torch-2.4.0+cu118.html
+# For CPU, use:
+# pip install pyg_lib torch_scatter torch_sparse torch_cluster torch_spline_conv -f https://data.pyg.org/whl/torch-2.4.0+cpu.html
+torch-geometric
+torch-geometric-temporal
+
+# Data processing and analysis
+pandas
+numpy
+scipy
+scikit-learn
+openpyxl
+
+# Statistical models
+statsmodels
+
+# Time series and additional utilities
+sktime
+matplotlib
+tqdm
+einops
+
+# Deep learning utilities
+reformer-pytorch
+
+# Additional utilities
+patool

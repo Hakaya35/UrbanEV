@@ -123,21 +123,53 @@ The data directory of this GitHub repository contains the preprocessed zone-leve
 
 ## Environment Requirements
 
-This section outlines the setup for the virtual environment required for time-series prediction based on UrbanEV, using Python 3.8 and PyTorch 2.4.1. Assuming your working directory is the project root directory, here are the relevant commands:
+This section outlines the setup for the virtual environment required for time-series prediction based on UrbanEV, using Python 3.8 and PyTorch 2.4.1.
 
-Windows
+### Option 1: Using requirements.txt (Recommended)
+
+For a quick setup using pip:
+
+```shell
+# Create a virtual environment (optional but recommended)
+conda create -n UrbanEV python=3.8 -y
+conda activate UrbanEV
+
+# Install PyTorch with CUDA 11.8 support
+pip install torch==2.4.1 torchvision==0.19.1 torchaudio==2.4.1 --index-url https://download.pytorch.org/whl/cu118
+
+# Install PyTorch Geometric extensions
+pip install pyg_lib torch_scatter torch_sparse torch_cluster torch_spline_conv -f https://data.pyg.org/whl/torch-2.4.0+cu118.html
+
+# Install remaining dependencies
+pip install -r requirements.txt
+```
+
+For CPU-only installation, replace the CUDA-specific commands with:
+
+```shell
+pip install torch==2.4.1 torchvision==0.19.1 torchaudio==2.4.1 --index-url https://download.pytorch.org/whl/cpu
+pip install pyg_lib torch_scatter torch_sparse torch_cluster torch_spline_conv -f https://data.pyg.org/whl/torch-2.4.0+cpu.html
+```
+
+### Option 2: Using installation scripts
+
+Assuming your working directory is the project root directory:
+
+**Windows:**
 
 ```shell
 cd code
 init_env.bat
 ```
 
-Linux
+**Linux:**
 
 ```shell
 cd code
 ./init_env.sh
 ```
+
+### Known Issues
 
 Due to the discontinuation of PyG Temporal, you may encounter a ModuleNotFoundError: No module named 'torch_geometric.utils.to_dense_adj' when running ASTGCN experiments. To resolve this, change from torch_geometric.utils.to_dense_adj import to_dense_adj to from torch_geometric.utils import to_dense_adj. See[pyg-#9023 (reply in thread)](https://github.com/pyg-team/pytorch_geometric/discussions/9023#discussioncomment-8813817) for more details.
 
